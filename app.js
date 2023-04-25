@@ -13,6 +13,7 @@ function initApp() {
 
     // event listener
     document.querySelector("#btn-create-post").addEventListener("click", showCreatePostDialog);
+    document.querySelector("#btn-create-post").addEventListener("click", createPostClicked);
 }
 
 // ============== events ============== //
