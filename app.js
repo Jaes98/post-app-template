@@ -49,8 +49,8 @@ function updatePostClicked(event) {
     const image = form.image.value;
     
     const id = form.getAttribute("data-id");
-    updatePost(title, body, image);
-    document.querySelector("dialog-update-post").close();
+    updatePost(id, title, body, image);
+    document.querySelector("#dialog-update-post").close();
 }
 // todo
 
