@@ -14,6 +14,7 @@ function initApp() {
     // event listener
     document.querySelector("#btn-create-post").addEventListener("click", showCreatePostDialog);
     document.querySelector("#btn-create-post").addEventListener("click", createPostClicked);
+    document.querySelector("#form-delete-post").addEventListener("submit", deletePostClicked)
 }
 
 // ============== events ============== //
@@ -26,12 +27,17 @@ function createPostClicked(event) {
     
     createPost(title, body, image);
     form.reset();
-    document.querySelector("dialog-create-post").close();
+    document.querySelector("#dialog-create-post").close();
 }
 
 function showCreatePostDialog() {
     console.log("Create New Post clicked!");
-    
+    document.querySelector("#dialog-create-post").showModal();
+}
+
+function deletePostClicked(event) {
+    const id = event.target.getAttribute("data-id");
+    deletePost(id);    
 }
 
 // todo
@@ -81,6 +87,10 @@ function showPost(postObject) {
     function deleteClicked() {
         console.log("Update button clicked");
         // to do
+        document.querySelector("#dialog-delete-post-title").textContent =postObject.title;
+        document.querySelector("#form-delete-post").setAttribute("data-id", postObject.id);
+        document.querySelector("#dialog-delete-post").showModal();
+
     }
 
     // called when update button is clicked
@@ -117,7 +127,15 @@ async function createPost(title, body, image) {
 // Update an existing post - HTTP Method: DELETE
 async function deletePost(id) {
     // DELETE fetch request
+    const response = await fetch(`${endpoint}/posts/${id}.json`,
+    {
+        method: "DELETE"
+    });
     // check if response is ok - if the response is successful
+    if (response.ok) {
+        console.log("DELETED");
+        updatePostsGrid();
+    }
     // update the post grid to display posts
 }
 
