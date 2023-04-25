@@ -39,14 +39,25 @@
             <label for="body">Body:</label>
             <input id="body" type="text" name="body" placeholder="New content of your post here">
             <label for="image">Image:</label>
-            <input id="URL" type="image" name="image" placeholder="Image URL here">
+            <input id="image" type="url" name="image" placeholder="Image URL here">
             <button>Create post</button>
         </form>
     </dialog>
     <!-- to do  -->
 
     <!-- dialog - update post -->
-    <dialog></dialog>
+    <dialog id="dialog-update-post">
+        <h2>Update post</h2>
+        <form id="form-update-post">
+            <label for="title-update">Title:</label>
+            <input id="title-update" type="text" name="title" placeholder="Updated title here">
+            <label for="body-update">Body:</label>
+            <input id="body-update" type="text" name="body" placeholder="Update content of your post here">
+            <label for="image-update">Image:</label>
+            <input id="image-update" type="url" name="image" placeholder="Update image here">
+            <button>Update post</button>
+        </form>
+    </dialog>
     <!-- to do  -->
 
 
@@ -56,7 +67,7 @@
         <p id="dialog-delete-post-title">Title of post</p>
         <form method="dialog" id="form-delete-post">
             <button type="button" class="btn-cancel">No</button>
-            <button type="button">Yes</button>
+            <button>Yes</button>
         </form>
     </dialog>
     <!-- to do  -->

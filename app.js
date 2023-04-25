@@ -13,8 +13,9 @@ function initApp() {
 
     // event listener
     document.querySelector("#btn-create-post").addEventListener("click", showCreatePostDialog);
-    document.querySelector("#btn-create-post").addEventListener("click", createPostClicked);
-    document.querySelector("#form-delete-post").addEventListener("submit", deletePostClicked)
+    document.querySelector("#form-create-post").addEventListener("submit", createPostClicked);
+    document.querySelector("#form-delete-post").addEventListener("submit", deletePostClicked);
+    document.querySelector("#form-update-post").addEventListener("submit", updatePostClicked);
 }
 
 // ============== events ============== //
@@ -40,6 +41,17 @@ function deletePostClicked(event) {
     deletePost(id);    
 }
 
+function updatePostClicked(event) {
+    event.preventDefault();
+    const form = event.target;
+    const title = form.title.value;
+    const body = form.body.value;
+    const image = form.image.value;
+    
+    const id = form.getAttribute("data-id");
+    updatePost(title, body, image);
+    document.querySelector("dialog-update-post").close();
+}
 // todo
 
 // ============== posts ============== //
@@ -97,6 +109,12 @@ function showPost(postObject) {
     function updateClicked() {
         console.log("Delete button clicked");
         // to do
+        const updateForm = document.querySelector("#form-update-post");
+        updateForm.title.value = postObject.title;
+        updateForm.body.value = postObject.body;
+        updateForm.image.value = postObject.image;
+        updateForm.setAttribute("data-id", postObject.id);
+        document.querySelector("#dialog-update-post").showModal();
     }
 }
 
@@ -111,7 +129,7 @@ async function createPost(title, body, image) {
     // convert the JS object to JSON string
     const json = JSON.stringify(newPost);
     // POST fetch request with JSON in the body
-    const response = await fetch(`${endpoint}/post.json`,
+    const response = await fetch(`${endpoint}/posts.json`,
     {
         method: "POST",
         body: json
@@ -119,6 +137,7 @@ async function createPost(title, body, image) {
     );
     // check if response is ok - if the response is successful
     if (response.ok) {
+        console.log("succes");
         updatePostsGrid();
     }
     // update the post grid to display all posts and the new post
@@ -142,9 +161,19 @@ async function deletePost(id) {
 // Delete an existing post - HTTP Method: PUT
 async function updatePost(id, title, body, image) {
     // post update to update
+    const postToUpdate = { title, body, image };
     // convert the JS object to JSON string
+    const json = JSON.stringify(postToUpdate);
     // PUT fetch request with JSON in the body. Calls the specific element in resource
+    const response = await fetch(`${endpoint}/posts/${id}.json`, {
+      method: "PUT",
+      body: json,
+    });
     // check if response is ok - if the response is successful
+    if (response.ok) {
+        console.log("updated a post");
+        updatePostsGrid();
+    }
     // update the post grid to display all posts and the new post
 }
 
