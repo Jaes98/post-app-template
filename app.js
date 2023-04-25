@@ -93,7 +93,7 @@ async function getPosts() {
 
 function showPosts(listOfPosts) {
   document.querySelector("#posts").innerHTML = ""; // reset the content of section#posts
-//   posts.sort(compareTitle)
+  posts.sort(compareTitle)
 
   for (const post of listOfPosts) {
     showPost(post); // for every post object in listOfPosts, call showPost
@@ -218,7 +218,7 @@ function searchPosts(searchValue) {
 
   return results;
 }
-// if (posts.contains===searchValue) {
+// if (posts.includes===searchValue) {
 //     return true
 // } else {
 //     return false
