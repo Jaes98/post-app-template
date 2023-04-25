@@ -16,6 +16,8 @@ function initApp() {
     document.querySelector("#form-create-post").addEventListener("submit", createPostClicked);
     document.querySelector("#form-delete-post").addEventListener("submit", deletePostClicked);
     document.querySelector("#form-update-post").addEventListener("submit", updatePostClicked);
+    document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
+    document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
 }
 
 // ============== events ============== //
@@ -53,6 +55,12 @@ function updatePostClicked(event) {
     document.querySelector("#dialog-update-post").close();
 }
 // todo
+
+function inputSearchChanged(event) {
+    const value = event.target.value;
+    const postsToShow = searchPosts(value);
+    showPost(postsToShow);
+}
 
 // ============== posts ============== //
 
@@ -175,6 +183,28 @@ async function updatePost(id, title, body, image) {
         updatePostsGrid();
     }
     // update the post grid to display all posts and the new post
+}
+
+function searchPosts(searchValue) {
+    searchValue = searchValue.toLowerCase();
+  
+    const results = posts.filter(checkTitle);
+  
+    function checkTitle(post) {
+      const title = post.title.toLowerCase();
+      return title.includes(searchValue);
+    }
+  
+    return results;
+
+    // if (posts.contains===searchValue) {
+    //     return true
+    // } else {
+    //     return false
+    // }
+
+    // const search = searchValue.filter(searchPosts)
+    // return search
 }
 
 // ============== helper function ============== //
