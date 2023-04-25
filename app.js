@@ -1,7 +1,7 @@
 "use strict";
 
 // ============== global variables ============== //
-const endpoint = "";
+const endpoint = "https://testings-78997-default-rtdb.firebaseio.com/";
 let posts;
 
 // ============== load and init app ============== //
