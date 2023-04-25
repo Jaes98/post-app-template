@@ -17,9 +17,21 @@ function initApp() {
 }
 
 // ============== events ============== //
+function createPostClicked(event) {
+    event.preventDefault();
+    const form = event.target;
+    const title = form.title.value;
+    const body = form.body.value;
+    const image = form.image.value; 
+    
+    createPost(title, body, image);
+    form.reset();
+    document.querySelector("dialog-create-post").close();
+}
 
 function showCreatePostDialog() {
     console.log("Create New Post clicked!");
+    
 }
 
 // todo
@@ -81,9 +93,24 @@ function showPost(postObject) {
 // Create a new post - HTTP Method: POST
 async function createPost(title, body, image) {
     // create new post object
+    const newPost = {
+        title: title,
+        body: body,
+        image: image
+    }
     // convert the JS object to JSON string
+    const json = JSON.stringify(newPost);
     // POST fetch request with JSON in the body
+    const response = await fetch(`${endpoint}/post.json`,
+    {
+        method: "POST",
+        body: json
+    }
+    );
     // check if response is ok - if the response is successful
+    if (response.ok) {
+        updatePostsGrid();
+    }
     // update the post grid to display all posts and the new post
 }
 
