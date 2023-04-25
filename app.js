@@ -99,8 +99,8 @@ function showPosts(listOfPosts) {
     showPost(post); // for every post object in listOfPosts, call showPost
   }
 }
-function compareTitle(user1, user2) {
-    return user1.title.localeCompare(user2.title)
+function compareTitle(post1, post2) {
+    return post1.title.localeCompare(post2.title)
 }
 
 function showPost(postObject) {
