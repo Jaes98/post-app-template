@@ -1,0 +1,94 @@
+{
+  "posts":{
+  "frodo":{
+    "name": "Frodo Baggins",
+    "age": 51,
+    "gender": "male",
+    "race": "Hobbit",
+    "actor": "Elijah Wood",
+    "movie": "The Fellowship of the Ring",
+    "origin": "The Shire"
+  },
+  "gandalf":{
+    "name": "Gandalf",
+    "age": "Unknown",
+    "gender": "male",
+    "race": "Maia",
+    "actor": "Ian McKellen",
+    "movie": "The Fellowship of the Ring",
+    "origin": "Valinor"
+  },
+  "aragorn":{
+    "name": "Aragorn",
+    "age": 87,
+    "gender": "male",
+    "race": "Human",
+    "actor": "Viggo Mortensen",
+    "movie": "The Fellowship of the Ring",
+    "origin": "Dúnedain"
+  },
+  "legolas":{
+    "name": "Legolas",
+    "age": 2931,
+    "gender": "male",
+    "race": "Elf",
+    "actor": "Orlando Bloom",
+    "movie": "The Fellowship of the Ring",
+    "origin": "Woodland Realm"
+  },
+  "gimli":{
+    "name": "Gimli",
+    "age": 139,
+    "gender": "male",
+    "race": "Dwarf",
+    "actor": "John Rhys-Davies",
+    "movie": "The Fellowship of the Ring",
+    "origin": "Lonely Mountain"
+  },
+  "arwen":{
+    "name": "Arwen",
+    "age": 2929,
+    "gender": "female",
+    "race": "Elf",
+    "actor": "Liv Tyler",
+    "movie": "The Fellowship of the Ring",
+    "origin": "Rivendell"
+  },
+  "boromir":{
+    "name": "Boromir",
+    "age": 41,
+    "gender": "male",
+    "race": "Human",
+    "actor": "Sean Bean",
+    "movie": "The Fellowship of the Ring",
+    "origin": "Gondor"
+  },
+  "samwise":{
+    "name": "Samwise Gamgee",
+    "age": 38,
+    "gender": "male",
+    "race": "Hobbit",
+    "actor": "Sean Astin",
+    "movie": "The Fellowship of the Ring",
+    "origin": "The Shire"
+  },
+  "meriadoc":{
+    "name": "Meriadoc Brandybuck",
+    "age": 36,
+    "gender": "male",
+    "race": "Hobbit",
+    "actor": "Dominic Monaghan",
+    "movie": "The Fellowship of the Ring",
+    "origin": "The Shire"
+  },
+  "peregrin":{
+    "name": "Peregrin Took",
+    "age": 29,
+    "gender": "male",
+    "race": "Hobbit",
+    "actor": "Billy Boyd",
+    "movie": "The Fellowship of the Ring",
+    "origin": "The Shire"
+  }
+}
+}
